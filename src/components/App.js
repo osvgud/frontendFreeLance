@@ -24,13 +24,23 @@ class App extends Component {
         }
     }
 
+    componentDidMount () {
+        const link1 = document.createElement("link");
+        const link2 = document.createElement("link");
+
+        link1.href="https://fonts.googleapis.com/css?family=Autour One";
+        link1.rel="stylesheet";
+
+        link2.href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
+        link2.rel="stylesheet";
+
+        document.head.appendChild(link1);
+        document.head.appendChild(link2);
+    }
+
     render() {
         return (
             <div>
-                <head>
-                    <link href='https://fonts.googleapis.com/css?family=Autour One' rel='stylesheet'/>
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-                </head>
                 <Layout token={this.state}/>
             </div>
         );

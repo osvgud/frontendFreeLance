@@ -22,21 +22,24 @@ class Header extends Component {
         return (
             <div>
                 <ul className="topnav" id="myTopnav">
-                    <Link to="/">Home</Link>
+                    <Link to={"/"}><img className={"svgicon"} src='https://svgshare.com/i/9q7.svg'/> Home</Link>
                     {token ? (<li>
-                        <Link to="/services/list">Services</Link>
+                        <Link to={"/services/list"}><img className={"svgicon"} src={'https://svgshare.com/i/9pi.svg'}/> Services</Link>
                         {token['Role'] === 'FreeLancer' ? (
-                            <Link to="/freelancer/jobs">Your Jobs</Link>
+                            <li>
+                            <Link to="/freelancer/jobs"><img className={"svgicon"} src={"https://svgshare.com/i/9qo.svg"}/> Your Jobs</Link>
+                            <Link to="/freelancer/profile"><img className={"svgicon"} src={"https://svgshare.com/i/9tJ.svg"}/> My Profile</Link>
+                            </li>
                         ) : (<span></span>)}
                         {token['Role'] === 'Employer' ? (
-                            <Link to="/employer/services">Your Services</Link>
+                            <Link to={"/employer/services"}><img className={"svgicon"} src={'https://svgshare.com/i/9pC.svg'}/> Your Services</Link>
                         ) : (<span></span>)}
-                        <Link to="/logout">LogOut</Link>
+                        <a href={"/logout"}><img className={"svgicon"}src='https://svgshare.com/i/9q8.svg'/> Logout</a>
                     </li>) : (
                         <li>
-                            <Link to="/register/freelancer">Register as a FreeLancer</Link>
-                            <Link to="/register/employer">Register as an Employer</Link>
-                            <Link to="/login">Login</Link>
+                            <a href={"/login"}><img className={"svgicon"} src='https://svgshare.com/i/9rK.svg' title='login' /> Login</a>
+                            <Link to={"/register/freelancer"}><img className={"svgicon"} src={"https://svgshare.com/i/9qd.svg"}/> Register as a FreeLancer</Link>
+                            <Link to={"/register/employer"}><img className={"svgicon"} src={"https://svgshare.com/i/9pn.svg"}/> Register as an Employer</Link>
                         </li>)}
                     <a href="javascript:void(0);" className="icon" onClick={() => this.myFunction()}>
                         <i className="fa fa-bars"></i>

@@ -45,9 +45,12 @@ class EmployerServicesPage extends Component {
         console.log(servicesList);
         return (
             <div>
-                {token && token['Role'] === 'Employer' ? (<Link to="/services/create">Create new service</Link>) : (<span>Tik employers gali kurti</span>)}
-                <Service servicesList={servicesList} page={page}/>
-                {this.createPages()}
+                {token && token['Role'] === 'Employer' ? (<Link to="/services/create">Create new service</Link>) : (
+                    <span>Tik employers gali kurti</span>)}
+                <Service token={token} servicesList={servicesList} page={page} type={"all"}/>
+                <div className={"parentPage"}>
+                    {this.createPages()}
+                </div>
             </div>
         );
     }

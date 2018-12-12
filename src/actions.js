@@ -12,6 +12,20 @@ export const setEmployerServices = (services) => {
     }
 };
 
+export const setFreeLancerJobs = (jobs) => {
+    return {
+        type: 'SET_FREELANCER_JOBS',
+        jobs,
+    }
+};
+
+export const setFreeLancersBusyTimes =(busyTimes) => {
+    return{
+        type: "SET_FREELANCER_BUSYTIMES",
+        busyTimes,
+    }
+};
+
 export const setMovies = (movies) => {
   // action - always return only object with data, no functionality can be done here
   return {
@@ -39,4 +53,4 @@ export const setLogs = (logs) => {
         type: 'SET_LOGS',
         logs,
     }
-}
+};

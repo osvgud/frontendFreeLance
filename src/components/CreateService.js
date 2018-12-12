@@ -2,15 +2,15 @@ import React, {Component} from 'react';
 import Cookies from "universal-cookie";
 
 class CreateService extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-                title: null,
-                description: null,
-                priceFrom: null,
-                priceTo: null,
-                employerId: this.props.token['UserId'],
-                groupId: null,
+            title: null,
+            description: null,
+            priceFrom: null,
+            priceTo: null,
+            employerId: this.props.token['UserId'],
+            groupId: null,
         };
         console.log(props);
         this.handleChange = this.handleChange.bind(this)
@@ -22,7 +22,7 @@ class CreateService extends Component {
 
     onSubmit = (event) => {
         const cookies = new Cookies();
-        const AuthStr = 'Bearer '+cookies.get('jwt');
+        const AuthStr = 'Bearer ' + cookies.get('jwt');
         const data = JSON.stringify(this.state);  // you should be able to see your form data
         console.log(data);
         fetch('http://freelancework.lt/Services', {
@@ -37,41 +37,37 @@ class CreateService extends Component {
             },
             body: data,
         })
-            .then(function(response) {
+            .then(function (response) {
                 return console.log(response);
             });
     };
 
     render() {
         return (
-            <div>
-                <h2>Submit Job</h2>
+            <div className="form-style-2">
+                <div className="form-style-2-heading">Provide your information</div>
                 <form onSubmit={this.onSubmit}>
-                    <div className="quation">
-                        <label>Title:</label>
-                        <input type="text" id="title" name="title" onChange={this.handleChange}/>
-                    </div>
-                    <label>
-                        Description:
-                        <input type="text" name="description" onChange={this.handleChange}/>
+                    <label htmlFor="title">
+                        <span>Title</span>
+                        <input type="text" className="input-field" name="title" onChange={this.handleChange}/>
                     </label>
-                    <br/>
-                    <label>
-                        Price From:
-                        <input type="text" name="priceFrom" onChange={this.handleChange}/>
+                    <label htmlFor="description">
+                        <span>Description</span>
+                        <textarea name="description" className="textarea-field" onChange={this.handleChange}/>
                     </label>
-                    <br/>
-                    <label>
-                        Price To:
-                        <input type="text" name="priceTo" onChange={this.handleChange}/>
+                    <label htmlFor="priceFrom">
+                        <span>Price From</span>
+                        <input type="text" className="input-field" name="priceFrom" onChange={this.handleChange}/>
                     </label>
-                    <br/>
-                    <label>
-                        Group Id
-                        <input type="text" name="groupId" onChange={this.handleChange}/>
+                    <label htmlFor="priceTo">
+                        <span>Price To</span>
+                        <input type="text" className="input-field" name="priceTo" onChange={this.handleChange}/>
                     </label>
-                    <br/>
-                    <button type="submit">Submit</button>
+                    <label htmlFor="groupId">
+                        <span>Group Id</span>
+                        <input type="text" className="input-field" name="groupId" onChange={this.handleChange}/>
+                    </label>
+                    <label className={"submitLabel"}><input type="submit" value="Submit" /></label>
                 </form>
             </div>
 

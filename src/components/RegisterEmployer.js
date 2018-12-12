@@ -41,43 +41,36 @@ class RegisterEmployer extends Component {
 
     render() {
         return (
-            <div>
-                <h2>Register as an Employer</h2>
+            <div className="form-style-2">
+                <div className="form-style-2-heading">Register as an Employer</div>
                 <form onSubmit={this.onSubmit}>
-                    <label>
-                        Username:
-                        <input type="text" name="username" onChange={this.handleChange}/>
+                    <label htmlFor="username">
+                        <span>Username</span>
+                        <input type="text" className="input-field" name="username" required onChange={this.handleChange}/>
                     </label>
-                    <br/>
-                    <label>
-                        Password:
-                        <input type="password" name="password" onChange={this.handleChange}/>
+                    <label htmlFor="password">
+                        <span>Password</span>
+                        <input type="text" className="input-field" name="password" required onChange={this.handleChange}/>
                     </label>
-                    <br/>
-                    <label>
-                        Name:
-                        <input type="text" name="name" onChange={this.handleChange}/>
+                    <label htmlFor="name">
+                        <span>Name</span>
+                        <input type="text" className="input-field" name="name" required onChange={this.handleChange}/>
                     </label>
-                    <br/>
-                    <label>
-                        Surname:
-                        <input type="text" name="surname" onChange={this.handleChange}/>
+                    <label htmlFor="surname">
+                        <span>Surname</span>
+                        <input type="text" className="input-field" name="surname" required onChange={this.handleChange}/>
                     </label>
-                    <br/>
-                    <label>
-                        Company Name
-                        <input type="text" name="companyName" onChange={this.handleChange}/>
+                    <label htmlFor="companyName">
+                        <span>Company</span>
+                        <input type="text" className="input-field" name="companyName" required onChange={this.handleChange}/>
                     </label>
-                    <br/>
-                    <label>
-                        Work Phone
-                        <input type="text" name="workPhone" onChange={this.handleChange}/>
+                    <label htmlFor="workPhone">
+                        <span>Work Phone</span>
+                        <input type="text" className="input-field" name="workPhone" required onChange={this.handleChange}/>
                     </label>
-                    <br/>
-                    <button type="submit">Submit</button>
+                    <label className={"submitLabel"}><input type="submit" value="Submit" /></label>
                 </form>
             </div>
-
         );
     }
 }

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {setGenres, setMovies, setLike, setLogs, setServices, setEmployerServices} from './actions';
+import {setFreeLancersBusyTimes, setFreeLancerJobs, setLogs, setServices, setEmployerServices} from './actions';
 import {endpoints} from '../config';
 import Cookies from "universal-cookie";
 import jwt from "jwt-decode";
@@ -15,11 +15,24 @@ export const getServices = () => (dispatch) => {
         .catch((error) => console.log(error));
 };
 
+export const getFreeLancerBusyTimes = () => (dispatch) => {
+    const cookies = new Cookies();
+    const AuthStr = 'Bearer '+cookies.get('jwt');
+    let token = cookies.get('jwt');
+    let decoded = jwt(token);
+    axios
+        .get('http://freelancework.lt/BusyTimes/userid/'+decoded['UserId'], { headers: { Authorization: AuthStr } })
+        .then((res) => {
+            dispatch(setFreeLancersBusyTimes(res.data))
+        })
+        .catch((error) => console.log(error));
+};
+
 export const getEmployerServices = () => (dispatch) => {
     const cookies = new Cookies();
     let token = cookies.get('jwt');
     let decoded = jwt(token);
-    const AuthStr = 'Bearer '+token;
+    const AuthStr = 'Bearer '+token;;
     axios
         .get('http://freelancework.lt/Services/employer/'+decoded['UserId'], { headers: { Authorization: AuthStr } })
         .then((res) => {
@@ -28,46 +41,18 @@ export const getEmployerServices = () => (dispatch) => {
         .catch((error) => console.log(error));
 };
 
-export const getMovies = () => (dispatch) => {
-    // thunk - dispatch actions when needed
+export const getFreeLancerJobs = () => (dispatch) => {
+    const cookies = new Cookies();
+    let token = cookies.get('jwt');
+    let decoded = jwt(token);
+    const AuthStr = 'Bearer '+token;;
     axios
-        .get(endpoints.mostPopularMovies())
+        .get('http://freelancework.lt/Jobs/freelancer/'+decoded['UserId'], { headers: { Authorization: AuthStr } })
         .then((res) => {
-            dispatch(setMovies(res.data.results))
+            dispatch(setFreeLancerJobs(res.data))
         })
         .catch((error) => console.log(error));
-};
-
-export const getGenres = () => (dispatch) => {
-    axios
-        .get(endpoints.genres())
-        .then((res) => {
-            dispatch(setGenres(res.data.genres))
-        })
-        .catch((error) => console.log(error));
-};
-
-export const getActiveGenre = (genre, logsList) => (dispatch) => {
-    dispatch(addLog(`Pakeistas zanras i ${genre.name}`,logsList));
-    axios
-        .get(endpoints.genreMovies(genre.id))
-        .then((res) => {
-            dispatch(setMovies(res.data.results));
-        })
-        .catch((error) => console.log(error));
-};
-
-export const addLike = (movie, likedList, logsList) => (dispatch) => {
-    dispatch(addLog(`Uzdeta sirdele filmui ${movie.original_title}`, logsList));
-    dispatch(setLike([...likedList, movie.id]));
-};
-
-export const unLike = (movie, likedList, logsList) => (dispatch) => {
-    dispatch(addLog(`Nuimta sirdele filmui ${movie.original_title}`, logsList));
-    dispatch(setLike(
-        likedList.filter((currentId => currentId !== movie.id))
-    ));
-};
+}
 
 export const addLog = (logText, logsList) => (dispatch) => {
     const now = new Date();

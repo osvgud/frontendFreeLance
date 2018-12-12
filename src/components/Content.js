@@ -14,6 +14,7 @@ import EmployerServicesPage from "./EmployerServicesPage";
 import ApplyJob from "./ApplyJob";
 import FreeLancerJobsPage from "./FreeLancerJobsPage";
 import PageShell from './PageShell'
+import FreeLancerProfile from "./FreeLancerProfile";
 
 
 class Content extends Component {
@@ -29,15 +30,16 @@ class Content extends Component {
 
                     <hr />
                 <div className="content">
-                    <Route exact path="/" component={Home} />
+                    <Route exact path="/" component={PageShell(() => <Home token={token}/>)} />
                     <Route path="/services/create" component={PageShell(() => <CreateService token={token}/>)} />
                     <Route path="/services/list" component={PageShell(() => <ServicePage token={token}/>)} />
-                    <Route path="/register/freelancer" component={() => <RegisterFreeLancer/>} />
-                    <Route path="/register/employer" component={() => <RegisterEmployer/>} />
+                    <Route path="/register/freelancer" component={PageShell(() => <RegisterFreeLancer/>)} />
+                    <Route path="/register/employer" component={PageShell(() => <RegisterEmployer/>)} />
                     <Route path="/login" component={PageShell(() => <Login/>)} />
                     <Route path="/logout" component={PageShell(() => <Logout/>)} />
                     <Route path="/employer/services" component={() => <EmployerServicesPage token={token}/>} />
-                    <Route path="/freelancer/jobs" component={() => <FreeLancerJobsPage token={token}/>} />
+                    <Route path="/freelancer/jobs" component={PageShell(() => <FreeLancerJobsPage token={token}/>)} />
+                    <Route path="/freelancer/profile" component={PageShell(() => <FreeLancerProfile token={token}/>)} />
                     <Route path="/service/apply/:id" render={(props) => <ApplyJob {...props} token={token}/>} />
                 </div>
                 </div>

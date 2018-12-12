@@ -42,38 +42,32 @@ class RegisterFreeLancer extends Component {
 
     render() {
         return (
-            <div>
-                <h2>Register as a FreeLancer</h2>
+            <div className="form-style-2">
+                <div className="form-style-2-heading">Register as a FreeLancer</div>
                 <form onSubmit={this.onSubmit}>
-                    <label>
-                        Username:
-                        <input type="text" name="username" onChange={this.handleChange}/>
+                    <label htmlFor="username">
+                        <span>Username</span>
+                        <input type="text" className="input-field" name="username" required onChange={this.handleChange}/>
                     </label>
-                    <br/>
-                    <label>
-                        Password:
-                        <input type="password" name="password" onChange={this.handleChange}/>
+                    <label htmlFor="password">
+                        <span>Password</span>
+                        <input type="text" className="input-field" name="password" required onChange={this.handleChange}/>
                     </label>
-                    <br/>
-                    <label>
-                        Name:
-                        <input type="text" name="name" onChange={this.handleChange}/>
+                    <label htmlFor="name">
+                        <span>Name</span>
+                        <input type="text" className="input-field" name="name" required onChange={this.handleChange}/>
                     </label>
-                    <br/>
-                    <label>
-                        Surname:
-                        <input type="text" name="surname" onChange={this.handleChange}/>
+                    <label htmlFor="surname">
+                        <span>Surname</span>
+                        <input type="text" className="input-field" name="surname" required onChange={this.handleChange}/>
                     </label>
-                    <br/>
-                    <label>
-                        Hourly Rate
-                        <input type="text" name="hourlyRate" onChange={this.handleChange}/>
+                    <label htmlFor="hourlyRate">
+                        <span>Hourly Rate</span>
+                        <input type="text" className="input-field" name="hourlyRate" required onChange={this.handleChange}/>
                     </label>
-                    <br/>
-                    <button type="submit">Submit</button>
+                    <label className={"submitLabel"}><input type="submit" value="Submit" /></label>
                 </form>
             </div>
-
         );
     }
 }

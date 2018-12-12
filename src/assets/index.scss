@@ -1,0 +1,243 @@
+.form-style-2{
+  margin: auto;
+  max-width: 800px;
+  padding: 20px 12px 10px 20px;
+}
+.form-style-2-heading{
+  font-weight: bold;
+  font-style: italic;
+  border-bottom: 2px solid #ddd;
+  margin-bottom: 20px;
+  font-size: 15px;
+  padding-bottom: 3px;
+}
+.form-style-2 label{
+  display: block;
+  margin: 0px 0px 15px 0px;
+}
+.form-style-2 label > span{
+  width: 120px;
+  font-weight: bold;
+  float: left;
+  padding-top: 8px;
+  padding-right: 5px;
+}
+.form-style-2 span.required{
+  color:red;
+}
+.form-style-2 .tel-number-field{
+  width: 40px;
+  text-align: center;
+}
+.form-style-2 input.input-field, .form-style-2 .select-field{
+  width: 70%;
+}
+.form-style-2 input.input-field,
+.form-style-2 .tel-number-field,
+.form-style-2 .textarea-field,
+.form-style-2 .select-field{
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border: 1px solid #C2C2C2;
+  box-shadow: 1px 1px 4px #EBEBEB;
+  -moz-box-shadow: 1px 1px 4px #EBEBEB;
+  -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  padding: 7px;
+  outline: none;
+}
+.form-style-2 .input-field:focus,
+.form-style-2 .tel-number-field:focus,
+.form-style-2 .textarea-field:focus,
+.form-style-2 .select-field:focus{
+  border: 1px solid #0C0;
+}
+.form-style-2 .textarea-field{
+  height:100px;
+  width: 70%;
+}
+.form-style-2 input[type=submit],
+.form-style-2 input[type=button]{
+  border: none;
+  padding: 8px 15px 8px 15px;
+  background: #333;
+  color: #fff;
+  box-shadow: 1px 1px 4px #DADADA;
+  -moz-box-shadow: 1px 1px 4px #DADADA;
+  -webkit-box-shadow: 1px 1px 4px #DADADA;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  width: 100%;
+  font-size: 20px;
+}
+.form-style-2 input[type=submit]:hover,
+.form-style-2 input[type=button]:hover{
+  background: #DADADA;;
+  color: #fff;
+}
+
+label.submitLabel {
+  margin: auto;
+  width: 50%;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #888;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer-basic-centered {
+  background-color: #292c2f;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+  font: normal 18px sans-serif;
+  padding: 45px;
+  margin-top: 80px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+}
+
+@media (max-height: 800px) {
+  footer {
+    position: static;
+  }
+}
+
+.footer-basic-centered .footer-company-name {
+  color: #8f9296;
+  font-size: 14px;
+  margin: 0;
+}
+
+.footer-basic-centered .footer-company-motto {
+  color: #8d9093;
+  font-size: 24px;
+  margin: 0;
+}
+
+/*
+Generic Styling, for Desktops/Laptops
+*/
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+/* Zebra striping */
+tr:nth-of-type(odd) {
+  background: #AEA1A1;
+}
+th {
+  background: #333;
+  color: white;
+  font-weight: bold;
+}
+td, th {
+  padding: 6px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+/*
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+  /* Force table to not be like tables anymore */
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr { border: 1px solid #ccc; }
+
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+  /*
+  Label the data
+  */
+  td.services:nth-of-type(1):before { content: "Title"; }
+  td.services:nth-of-type(2):before { content: "Description"; }
+  td.services:nth-of-type(3):before { content: "Price From"; }
+  td.services:nth-of-type(4):before { content: "Price To"; }
+  td.services:nth-of-type(5):before { content: "Employer Info"; }
+  td.services:nth-of-type(6):before { content: "Delete"; }
+
+  td.servicesmy:nth-of-type(1):before { content: "Service"; }
+
+  td.jobs:nth-of-type(1):before { content: "Employee Comment"; }
+  td.jobs:nth-of-type(2):before { content: "Job Status"; }
+  td.jobs:nth-of-type(3):before { content: "Time Spent"; }
+  td.jobs:nth-of-type(4):before { content: "Service"; }
+
+  td.times:nth-of-type(1):before { content: "Busy From"; }
+  td.times:nth-of-type(2):before { content: "Busy To"; }
+}

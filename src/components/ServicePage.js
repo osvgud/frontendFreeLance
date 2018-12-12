@@ -17,7 +17,7 @@ class ServicePage extends Component {
     }
 
     getMaxPage() {
-        return this.props.servicesList.length / 25;
+        return this.props.servicesList.length / 5;
     }
 
     createPages = () => {
@@ -46,9 +46,11 @@ class ServicePage extends Component {
 
         return (
             <div>
-                {token && token['Role'] === 'Employer' ? (<Link to="/services/create">Create new service</Link>) : (<span>Tik employers gali kurti</span>)}
-                <Service servicesList={servicesList} page={page}/>
-                {this.createPages()}
+                {token && token['Role'] === 'Employer' ? (<Link to="/services/create">Create new service</Link>) : (false)}
+                <Service token={token} servicesList={servicesList} type={"my"} page={page}/>
+                <div className={"parentPage"}>
+                    {this.createPages()}
+                </div>
             </div>
         );
     }

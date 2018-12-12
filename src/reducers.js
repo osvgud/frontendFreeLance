@@ -25,6 +25,26 @@ const employerServicesReducer = (state = initialState, action) => {
     }
 };
 
+const freeLancerJobsReducer = (state = initialState, action) => {
+    switch(action.type) {
+        case 'SET_FREELANCER_JOBS':
+            return {...state, list: action.jobs};
+
+        default:
+            return state;
+    }
+};
+
+const freelancerBusyTimesReducer = (state = initialState, action) => {
+    switch(action.type) {
+        case 'SET_FREELANCER_BUSYTIMES':
+            return {...state, list: action.busyTimes};
+
+        default:
+            return state;
+    }
+}
+
 const moviesReducer = (state = initialState, action) => {
     // reducer - always return NEW state, no functionality can be done here
     switch (action.type) {
@@ -73,4 +93,6 @@ export default combineReducers({
     likes: likesReducer,
     logs: logsReducer,
     employerServices: employerServicesReducer,
+    freeLancerJobs: freeLancerJobsReducer,
+    busyTimes : freelancerBusyTimesReducer,
 });

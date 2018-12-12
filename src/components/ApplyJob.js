@@ -43,15 +43,14 @@ class ApplyJob extends Component {
     render() {
         console.log(this.props.match.params.id);
         return (
-            <div>
-                <h1>Apply For this service</h1>
+            <div className="form-style-2">
+                <div className="form-style-2-heading">Apply For this service</div>
                 <form onSubmit={this.onSubmit}>
-                    <label>
-                        You comment why you want to do this job
-                        <input type="text" id="employeeComment" name="employeeComment" onChange={this.handleChange}/>
+                    <label htmlFor="employeeComment">
+                        <span>Your Comment</span>
+                        <input type="text" className="input-field" name="employeeComment" onChange={this.handleChange}/>
                     </label>
-                    <br/>
-                    <button type="submit">Submit</button>
+                    <label className={"submitLabel"}><input type="submit" value="Submit" /></label>
                 </form>
             </div>
         );

@@ -4,7 +4,6 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 const PageShell = Page => {
     return props =>
-        <div className="page">
             <ReactCSSTransitionGroup
                 transitionAppear={true}
                 transitionAppearTimeout={600}
@@ -12,10 +11,8 @@ const PageShell = Page => {
                 transitionLeaveTimeout={200}
                 transitionName={'SlideIn'}
             >
-                {/*<img src={logo} alt="" />*/}
                 <Page {...props} />
             </ReactCSSTransitionGroup>
-        </div>;
 };
 
 export default PageShell;

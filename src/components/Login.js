@@ -31,20 +31,18 @@ export default class Login extends Component {
 
     render() {
         return (
-            <div>
-                <h2>Register as an Employer</h2>
+            <div className="form-style-2">
+                <div className="form-style-2-heading">Login to a website</div>
                 <form onSubmit={this.onSubmit}>
-                    <label>
-                        Username:
-                        <input type="text" name="username" onChange={this.handleChange}/>
+                    <label htmlFor="username">
+                        <span>Username</span>
+                        <input type="text" className="input-field" name="username" onChange={this.handleChange}/>
                     </label>
-                    <br/>
-                    <label>
-                        Password:
-                        <input type="password" name="password" onChange={this.handleChange}/>
+                    <label htmlFor="password">
+                        <span>Password</span>
+                        <input type="password" className="input-field" name="password" onChange={this.handleChange}/>
                     </label>
-                    <br/>
-                    <button type="submit">Submit</button>
+                    <label className={"submitLabel"}><input type="submit" value="Submit" /></label>
                 </form>
             </div>
 
